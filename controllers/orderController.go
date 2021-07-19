@@ -84,7 +84,8 @@ type Sales struct {
 
 func Chart(c *fiber.Ctx) error {
 	var sales Sales
-	database.DB.Raw(`SELECT DATE_FORMAT(o.created_at, '%Y-%m-%d') as date, SUM(oi.price *oi.quantity) as sum FROM orders o JOIN oder_items oi
+
+	database.DB.Raw(`SELECT DATE_FORMAT(o.created_at, '%Y-%m-%d') as date, SUM(oi.price *oi.quantity) as sum FROM orders o JOIN oder_items oi 
 	on o.id = oi.order_id
 	GROUP by date
 	`).Scan(&sales)

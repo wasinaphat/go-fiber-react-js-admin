@@ -126,7 +126,6 @@ func UpdateInfo(c *fiber.Ctx) error  {
 
 	userId,_:=strconv.Atoi(id)
 
-
 	user := models.User{
 		Id: uint(userId),
 		FirstName: data["first_name"],
@@ -155,7 +154,6 @@ func UpdatePassword(c *fiber.Ctx) error  {
 
 	id, _ := util.ParseJwt(cookie)
 	userId,_:=strconv.Atoi(id)
-
 
 	 user:= models.User{
 		 Id: uint(userId),

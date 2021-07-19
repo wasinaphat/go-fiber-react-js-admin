@@ -22,7 +22,7 @@ func CreateRole(c *fiber.Ctx) error {
 
 	if err := c.BodyParser(&roleDto); err != nil {
 		return err
-	}
+
 	list := roleDto["permissions"].([]interface{})
 	permissions := make([]models.Permission, len(list))
 
